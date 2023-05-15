@@ -85,7 +85,7 @@ const handleItemDeleteClick = (noteId: string) => emits("note-delete-clicked", n
             <span class="sr-only">Delete Note</span>
           </button>
         </div>
-        <article class="format" v-html="note.content" />
+        <article class="format format-sm line-clamp-3 opacity-50" v-html="note.content" />
       </div>
     </div>
     <div v-if="viewStyle === 'grid'" class="grid grid-cols-2 gap-4">
@@ -108,7 +108,7 @@ const handleItemDeleteClick = (noteId: string) => emits("note-delete-clicked", n
             <span class="sr-only">Delete Note</span>
           </button>
         </div>
-        <article class="format" v-html="note.content" />
+        <article class="format format-sm line-clamp-3 opacity-50" v-html="note.content" />
       </div>
     </div>
   </template>
