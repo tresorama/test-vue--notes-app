@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { ListBulletIcon, Squares2X2Icon, TrashIcon } from "@heroicons/vue/20/solid";
-import type { Note } from "../data/api/notes.types"
+import type { Note } from "../data/api/notes.types";
+import SearchInput from './ui/SearchInput.vue'
 
 const props = defineProps<{
   notes: Note[];
@@ -13,9 +14,18 @@ const emits = defineEmits<{
 
 const isEmptyList = computed(() => props.notes.length === 0);
 const viewStyle = ref<"grid" | "list">("grid");
+const searchInputValue = ref('');
 const notes = computed(() => {
   const cloned = Array.from(props.notes);
-  const mostRecentsFirst = cloned.sort((a, b) => b.date_created_at.valueOf() - a.date_created_at.valueOf());
+  const filteredBySearch = searchInputValue.value === '' 
+    ? cloned 
+    : cloned.filter(item=> {
+        const includesInsesnitiveString = (str:string, searchTerm:string) => str.toLowerCase().includes(searchTerm.trim().toLowerCase());
+        if (includesInsesnitiveString(item.title, searchInputValue.value)) return true;
+        if (includesInsesnitiveString(item.content, searchInputValue.value)) return true;
+        return false;
+      });
+  const mostRecentsFirst = filteredBySearch.sort((a, b) => b.date_created_at.valueOf() - a.date_created_at.valueOf());
   return mostRecentsFirst;
 })
 
@@ -32,7 +42,12 @@ const handleItemDeleteClick = (noteId: string) => emits("note-delete-clicked", n
     </div>
   </template>
   <template v-else>
-    <div class="mb-4 flex justify-end">
+    <div class="mb-4 flex justify-between items-start gap-8">
+      <!-- SEARCH INPUT -->
+      <div class="w-[20rem]">
+        <SearchInput v-model="searchInputValue" :disable-submit-button="true"/>
+      </div>
+      <!-- VIEW STYLE SWITCHER -->
       <div class="inline-flex rounded-md shadow-sm" role="group">
         <button
           @click="viewStyle = 'grid'"
