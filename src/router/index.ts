@@ -1,13 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import NotesView from '../views/NotesView.vue';
+import HomeView from '../views/HomeView.vue';
+import NotesView_Flowbite from '../views/with-flowbite/NotesView.vue';
+import NotesView_PrimeVue from '../views/with-primevue/NotesView.vue';
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'notes',
-      component: NotesView
+      component: HomeView,
+    },
+    {
+      path: '/with-flowbite',
+      component: NotesView_Flowbite,
+    },
+    {
+      path: '/with-primevue',
+      component: NotesView_PrimeVue,
     },
     // {
     //   path: '/about',

@@ -2337,6 +2337,11 @@ prettier@^2.8.8:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
+primevue@^3.29.1:
+  version "3.29.1"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-3.29.1.tgz#43d05ff7bc3819a7fb9b655b4128ac4b7f1540ac"
+  integrity sha512-dn00eWy5ZVL5srjVD/sLppjg4leDPKx3EUxOMuTi/o5e0XHGB1ZASfXPSSNTr314k3NWpoQqzuDfPNOg4PJ7fg==
+
 punycode@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.0.tgz#f67fa67c94da8f4d0cfff981aee4118064199b8f"

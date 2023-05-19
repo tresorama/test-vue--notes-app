@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import TinyMCE_Editor from '@tinymce/tinymce-vue'
-import type { NoteCreatable } from "../data/api/notes.types";
+import type { NoteCreatable } from "../../../data/api/notes.types";
 
 const TINY_MCE_API_KEY = "0zvb6p8uduv6jv5nxf08u4hig4cqp0c266jeojz1n3fpggvh";
 

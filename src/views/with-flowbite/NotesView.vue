@@ -3,10 +3,10 @@ import { ref, computed, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { Toaster, toast } from "vue-sonner";
 import { PlusIcon, XMarkIcon, ArrowPathIcon } from "@heroicons/vue/20/solid";
-import NotesList from "../components/NotesList.vue";
-import NoteForm from "../components/NoteForm.vue";
-import type { Note } from "../data/api/notes.types";
-import { useNotesStore } from "../data/stores/notes";
+import NotesList from "./components/NotesList.vue";
+import NoteForm from "./components/NoteForm.vue";
+import type { Note } from "../../data/api/notes.types";
+import { useNotesStore } from "../../data/stores/notes";
 
 const notesStore = useNotesStore();
 const { notes, notesFetchStatus, noteMutateStatus } = storeToRefs(notesStore);

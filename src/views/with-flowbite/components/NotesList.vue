@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { ListBulletIcon, Squares2X2Icon, TrashIcon } from "@heroicons/vue/20/solid";
-import type { Note } from "../data/api/notes.types";
+import type { Note } from "../../../data/api/notes.types";
 import SearchInput from './ui/SearchInput.vue'
 
 const props = defineProps<{
